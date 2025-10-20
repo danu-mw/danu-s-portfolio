@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprite Test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      background: #1a0f2e;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .sprite-test {
+      text-align: center;
+    }
+    .sprite-box {
+      width: 150px;
+      height: 150px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+      border: 3px solid #D8B8F8;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    .sprite-animated {
+      animation: playSprite 1s steps(4) infinite;
+    }
+    @keyframes playSprite {
+      from { background-position: 0 0; }
+      to { background-position: -600px 0; }
+    }
+    h3 {
+      margin: 10px 0;
+      color: #FFE6FF;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sprite Sheet Test</h1>
+  <p>If you see animated characters below, the sprites are working!</p>
+  
+  <div class="container">
+    <div class="sprite-test">
+      <div class="sprite-box sprite-animated" style="background-image: url('/sprites/character/Idle.png'); background-size: 400% 100%;"></div>
+      <h3>Idle (4 frames)</h3>
+    </div>
+    
+    <div class="sprite-test">
+      <div class="sprite-box sprite-animated" style="background-image: url('/sprites/character/Happy.png'); background-size: 400% 100%;"></div>
+      <h3>Happy (4 frames)</h3>
+    </div>
+    
+    <div class="sprite-test">
+      <div class="sprite-box sprite-animated" style="background-image: url('/sprites/character/Walk.png'); background-size: 600% 100%; animation: playWalk 0.5s steps(6) infinite;"></div>
+      <h3>Walk (6 frames)</h3>
+    </div>
+    
+    <div class="sprite-test">
+      <div class="sprite-box sprite-animated" style="background-image: url('/sprites/character/Jump.png'); background-size: 1200% 100%; animation: playJump 0.8s steps(12) infinite;"></div>
+      <h3>Jump (12 frames)</h3>
+    </div>
+  </div>
+
+  <style>
+    @keyframes playWalk {
+      from { background-position: 0 0; }
+      to { background-position: -900px 0; }
+    }
+    @keyframes playJump {
+      from { background-position: 0 0; }
+      to { background-position: -1800px 0; }
+    }
+  </style>
+
+  <script>
+    // Log sprite paths for debugging
+    const sprites = ['Idle', 'Happy', 'Walk', 'Jump', 'Run', 'Attack', 'Die', 'RecieveDamage'];
+    sprites.forEach(sprite => {
+      const img = new Image();
+      img.onload = () => console.log(`✅ ${sprite}.png loaded - ${img.width}x${img.height}`);
+      img.onerror = () => console.error(`❌ ${sprite}.png failed to load`);
+      img.src = `/sprites/character/${sprite}.png`;
+    });
+  </script>
+</body>
+</html>
