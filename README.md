@@ -1,4 +1,4 @@
-# ✨ Magic Game Dev Portfolio
+# ✨ Danu's Portfolio
 
 A stunning, magical 3D developer portfolio for game and graphics designers, built with React, Three.js, and GSAP. Features floating enchanted islands, magical particles, and immersive 3D animations inspired by fantasy RPG worlds.
 
