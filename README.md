@@ -2,6 +2,12 @@
 
 A stunning, magical 3D developer portfolio for game and graphics designers, built with React, Three.js, and GSAP. Features floating enchanted islands, magical particles, and immersive 3D animations inspired by fantasy RPG worlds.
 
+## 🌐 Live Demo
+
+**🚀 [View Live Portfolio](https://danu-portfolio.pages.dev/)**
+
+Hosted on Cloudflare Pages with global CDN for blazing-fast performance worldwide! ⚡
+
 ![Portfolio Preview](https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200)
 
 ## 🎨 Features
