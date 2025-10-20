@@ -1,0 +1,13 @@
+.loading-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 20px;
+}
+
+.loading-fallback p {
+  color: #93E2FB;
+  font-style: italic;
+}
