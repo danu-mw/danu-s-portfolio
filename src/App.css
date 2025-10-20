@@ -1,0 +1,67 @@
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Animated Stars Background */
+.stars-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 90%, white, transparent),
+    radial-gradient(2px 2px at 75% 25%, white, transparent);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: twinkle 20s ease-in-out infinite;
+  opacity: 0.6;
+  z-index: -2;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 100% 0%, 0% 100%, 33% 90%, 75% 25%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 25% 75%, 0% 100%, 100% 0%, 66% 10%, 25% 75%;
+    opacity: 0.8;
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section Dividers with Magical Effect */
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168, 146, 255, 0.5),
+    rgba(255, 146, 220, 0.5),
+    rgba(66, 255, 248, 0.5),
+    transparent
+  );
+}
+
+section:last-child::after {
+  display: none;
+}

@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ============================================
+     NEW COLOR PALETTE - Mountain Scene Theme
+     ============================================ */
+  --deep-teal: #07313D;        /* Dark teal/navy */
+  --teal-medium: #456E66;      /* Medium teal */
+  --beige-light: #C1A194;      /* Light beige/tan */
+  --coral-pink: #F67989;       /* Coral pink */
+  --mauve-pink: #9D446A;       /* Mauve/dusty pink */
+  --purple-deep: #643958;      /* Deep purple */
+  
+  /* Mapped names for consistency */
+  --peach-light: #F67989;      /* Coral pink */
+  --pink-light: #9D446A;       /* Mauve pink */
+  --pink-medium: #9D446A;      /* Mauve pink */
+  --purple-medium: #643958;    /* Deep purple */
+  --purple-dark: #643958;      /* Deep purple */
+  --purple-deepest: #07313D;   /* Deep teal */
+  
+  /* Legacy names mapped to new palette */
+  --lavender: #9D446A;
+  --turquoise: #456E66;
+  --pink: #F67989;
+  --gold: #C1A194;
+  --soft-blue: #456E66;
+  --dark-purple: #643958;
+  --deep-space: #07313D;
+  --glow-white: #ffffff;
+  
+  /* Gradients - Updated */
+  --gradient-magical: linear-gradient(135deg, #F67989, #9D446A, #643958);
+  --gradient-sky: linear-gradient(180deg, #07313D 0%, #456E66 50%, #9D446A 100%);
+  
+  /* ============================================
+     OLD COLOR PALETTE (PRESERVED FOR REFERENCE)
+     ============================================
+     --peach-light: #FFBB94;
+     --pink-light: #FB9590;
+     --pink-medium: #DC586D;
+     --purple-medium: #A33757;
+     --purple-dark: #852E4E;
+     --purple-deepest: #4C1D3D;
+     --gradient-magical: linear-gradient(135deg, #FFBB94, #FB9590, #DC586D);
+     --gradient-sky: linear-gradient(180deg, #4C1D3D 0%, #852E4E 50%, #A33757 100%);
+     ============================================ */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #07313D 0%, #456E66 20%, #643958 50%, #9D446A 80%, #F67989 100%);
+  color: var(--glow-white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-space);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--lavender), var(--pink));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--turquoise), var(--lavender));
+}
+
+/* Magical Glow Effect */
+.magical-glow {
+  text-shadow: 
+    0 0 5px rgba(220, 88, 109, 0.4),
+    0 0 10px rgba(220, 88, 109, 0.3),
+    0 0 15px rgba(220, 88, 109, 0.2);
+}
+
+.magical-glow-pink {
+  text-shadow: 
+    0 0 5px rgba(255, 187, 148, 0.4),
+    0 0 10px rgba(255, 187, 148, 0.3),
+    0 0 15px rgba(255, 187, 148, 0.2);
+}
+
+.magical-glow-turquoise {
+  text-shadow: 
+    0 0 5px rgba(251, 149, 144, 0.4),
+    0 0 10px rgba(251, 149, 144, 0.3),
+    0 0 15px rgba(251, 149, 144, 0.2);
+}
+
+/* Glass Morphism Effect */
+.glass-card {
+  background: rgba(255, 187, 148, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 187, 148, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(220, 88, 109, 0.2);
+}
+
+/* Magical Button */
+.magical-button {
+  position: relative;
+  padding: 12px 32px;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #DC586D, #A33757);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 10px rgba(220, 88, 109, 0.2),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.magical-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px rgba(220, 88, 109, 0.3),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.magical-button:active {
+  transform: translateY(0);
+}
+
+.magical-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.magical-button:hover::before {
+  left: 100%;
+}
+
+/* Section Styling */
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Loading Animation */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(168, 146, 255, 0.3);
+  border-top: 3px solid var(--lavender);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Sparkle Effect */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Canvas Container */
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
