@@ -12,7 +12,7 @@ const canvasSettings = getCanvasSettings()
 const Contact = () => {
   // Initialize EmailJS with the public key
   useEffect(() => {
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'N97w_YfvEQpPJUBPU'
+    const publicKey = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'N97w_YfvEQpPJUBPU').trim()
     emailjs.init(publicKey)
     console.log('EmailJS initialized with public key:', publicKey)
   }, [])
@@ -39,9 +39,9 @@ const Contact = () => {
     setError('')
 
     // EmailJS configuration - using fallback for Cloudflare Pages compatibility
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_0055iu'
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_72vsqv7'
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'N97w_YfvEQpPJUBPU'
+    const serviceId = (import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_0055iu').trim()
+    const templateId = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_72vsqv7').trim()
+    const publicKey = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'N97w_YfvEQpPJUBPU').trim()
 
     console.log('EmailJS Config:', { serviceId, templateId, publicKey })
 
