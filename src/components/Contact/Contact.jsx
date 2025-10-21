@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { motion } from 'framer-motion'
@@ -10,6 +10,12 @@ import './Contact.css'
 const canvasSettings = getCanvasSettings()
 
 const Contact = () => {
+  // Initialize EmailJS with the public key
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'N97w_YfvEQpPJUBPU'
+    emailjs.init(publicKey)
+    console.log('EmailJS initialized with public key:', publicKey)
+  }, [])
   const formRef = useRef()
   const [formData, setFormData] = useState({
     name: '',
@@ -37,6 +43,8 @@ const Contact = () => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_72vsqv7'
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'N97w_YfvEQpPJUBPU'
 
+    console.log('EmailJS Config:', { serviceId, templateId, publicKey })
+
     // Validate environment variables are set
     if (!serviceId || !templateId || !publicKey) {
       setError('Email service is not configured. Please contact me directly.')
@@ -52,8 +60,8 @@ const Contact = () => {
         setTimeout(() => setSubmitted(false), 5000)
       })
       .catch((error) => {
-        console.error('Email sending failed:', error.text)
-        setError('Failed to send message. Please try again or email me directly.')
+        console.error('Email sending failed:', error)
+        setError(`Failed to send message: ${error.text || error.message || 'Unknown error'}. Please try again or email me directly.`)
       })
       .finally(() => {
         setSending(false)
