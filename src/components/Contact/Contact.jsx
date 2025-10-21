@@ -32,10 +32,10 @@ const Contact = () => {
     setSending(true)
     setError('')
 
-    // EmailJS configuration from environment variables
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    // EmailJS configuration - using fallback for Cloudflare Pages compatibility
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_0055iu'
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_72vsqv7'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'N97w_YfvEQpPJUBPU'
 
     // Validate environment variables are set
     if (!serviceId || !templateId || !publicKey) {
