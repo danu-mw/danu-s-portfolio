@@ -3,7 +3,10 @@ import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProjectCard3D from './ProjectCard3D'
+import { getCanvasSettings } from '../../utils/performance'
 import './Projects.css'
+
+const canvasSettings = getCanvasSettings()
 
 const projectsData = [
   {
@@ -74,9 +77,16 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects-section section" ref={sectionRef}>
-      {/* 3D Background */}
+      {/* 3D Background - Mobile Optimized */}
       <div className="projects-canvas">
-        <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+        <Canvas 
+          camera={{ position: [0, 0, 8], fov: 50 }}
+          {...canvasSettings}
+          gl={{ 
+            powerPreference: canvasSettings.powerPreference,
+            antialias: canvasSettings.antialias 
+          }}
+        >
           <Suspense fallback={null}>
             <ambientLight intensity={0.4} />
             <pointLight position={[0, 0, 5]} intensity={1} color="#A892FF" />

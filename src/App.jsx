@@ -11,6 +11,7 @@ import Navigation from './components/Navigation/Navigation'
 import LoadingScreen from './components/LoadingScreen/LoadingScreen'
 import MagicalCursor from './components/MagicalCursor/MagicalCursor'
 import './App.css'
+import './styles/mobile-performance.css'
 
 function App() {
   const [loading, setLoading] = useState(true)

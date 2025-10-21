@@ -5,9 +5,12 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import AboutScene from './AboutScene'
+import { getCanvasSettings } from '../../utils/performance'
 import './About.css'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const canvasSettings = getCanvasSettings()
 
 const About = () => {
   const sectionRef = useRef(null)

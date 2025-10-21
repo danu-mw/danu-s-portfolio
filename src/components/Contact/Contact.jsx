@@ -4,7 +4,10 @@ import { Suspense } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import ContactScene from './ContactScene'
+import { getCanvasSettings } from '../../utils/performance'
 import './Contact.css'
+
+const canvasSettings = getCanvasSettings()
 
 const Contact = () => {
   const formRef = useRef()

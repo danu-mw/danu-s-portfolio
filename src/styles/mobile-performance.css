@@ -1,0 +1,103 @@
+/* Mobile Performance Optimizations */
+
+/* Reduce animations on low-end devices */
+@media (max-width: 768px) {
+  /* Disable expensive CSS filters on mobile */
+  .magical-glow,
+  .magical-glow-pink {
+    text-shadow: 0 0 10px currentColor !important;
+    filter: none !important;
+  }
+
+  /* Simplify backdrop blur on mobile */
+  .glass-card {
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+  }
+
+  /* Reduce particle animations */
+  .magical-overlay {
+    opacity: 0.3 !important;
+  }
+
+  .stars-background {
+    opacity: 0.4 !important;
+  }
+
+  /* Simplify transforms for better performance */
+  * {
+    will-change: auto !important;
+  }
+
+  /* Disable hover effects on mobile */
+  .magical-button:hover,
+  .project-card:hover,
+  .skill-orb:hover {
+    transform: none !important;
+  }
+
+  /* Reduce box-shadows on mobile */
+  .glass-card,
+  .magical-button,
+  .project-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* Ultra low-end device optimizations */
+@media (max-width: 480px) and (max-resolution: 1.5dppx) {
+  /* Disable all filters */
+  * {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Disable 3D transforms */
+  .profile-flip-inner {
+    transform: none !important;
+  }
+
+  /* Simplify background */
+  .magical-overlay,
+  .stars-background {
+    display: none !important;
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Performance hint for browsers */
+.hero-section,
+.skills-section,
+.projects-section,
+.contact-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 100vh;
+}
+
+/* Canvas containers optimization */
+.skills-canvas,
+.projects-canvas,
+.contact-canvas {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .skills-canvas,
+  .projects-canvas,
+  .contact-canvas {
+    opacity: 0.7;
+  }
+}

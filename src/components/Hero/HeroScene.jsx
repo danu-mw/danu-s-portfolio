@@ -10,6 +10,10 @@ import {
   MeshDistortMaterial
 } from '@react-three/drei'
 import * as THREE from 'three'
+import { getPerformanceConfig } from '../../utils/performance'
+
+// Get performance config once
+const perfConfig = getPerformanceConfig()
 
 /* ============================================================================
    CIRCULAR ORBIT ANIMATION SYSTEM FOR 6 THEMED ISLANDS
@@ -1029,20 +1033,20 @@ const HeroScene = () => {
       {/* Environment */}
       <Environment preset="night" />
       
-      {/* Stars */}
+      {/* Stars - Optimized for mobile */}
       <Stars 
         radius={100} 
         depth={50} 
-        count={5000} 
+        count={perfConfig.starsCount} 
         factor={4} 
         saturation={0.5} 
         fade 
         speed={1}
       />
 
-      {/* Magical Sparkles */}
+      {/* Magical Sparkles - Optimized for mobile */}
       <Sparkles 
-        count={100} 
+        count={perfConfig.sparklesCount} 
         scale={15} 
         size={2} 
         speed={0.4}

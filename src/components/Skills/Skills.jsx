@@ -5,9 +5,12 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import HeroScene from '../Hero/HeroScene'
+import { getCanvasSettings } from '../../utils/performance'
 import './Skills.css'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const canvasSettings = getCanvasSettings()
 
 const skillsData = [
   {
@@ -79,9 +82,16 @@ const Skills = () => {
 
   return (
     <section id="skills" className="skills-section section" ref={sectionRef}>
-      {/* 3D Scene with Floating Islands (same as Hero) */}
+      {/* 3D Scene with Floating Islands (same as Hero) - Mobile Optimized */}
       <div className="skills-canvas">
-        <Canvas camera={{ position: [0, 2, 12], fov: 55 }}>
+        <Canvas 
+          camera={{ position: [0, 2, 12], fov: 55 }}
+          {...canvasSettings}
+          gl={{ 
+            powerPreference: canvasSettings.powerPreference,
+            antialias: canvasSettings.antialias 
+          }}
+        >
           <Suspense fallback={null}>
             <HeroScene />
           </Suspense>
